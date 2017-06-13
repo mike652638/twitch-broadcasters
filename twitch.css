@@ -1,0 +1,443 @@
+body {
+    color: #fff;
+    background-color: #1f253d;
+    font-family: "Microsoft Yahei", "Sans-Serif";
+}
+
+.container-fluid {
+    position: relative;
+    /**width: 540px;**/
+    min-width: 300px;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.headArea {
+    height: 80px;
+    padding: 10px 10px 14px 10px;
+    cursor: move;
+    text-align: center;
+    border-radius: 0 !important;
+    background-color: #3468af;
+}
+
+.headArea img {
+    float: left;
+    width: 80px;
+    -webkit-transition: all .5s ease-in;
+    transition: all .5s ease-in;
+    -webkit-filter: drop-shadow(2px 4px 10px #80ffff);
+    filter: drop-shadow(2px 4px 10px #80ffff);
+}
+
+.headArea img:hover {
+    -webkit-transform: rotate(720deg);
+    transform: rotate(720deg);
+}
+
+.titleArea {
+    overflow: hidden;
+    width: calc(100% - 120px);
+    margin-left: 100px;
+}
+
+.myTitle {
+    font-size: 1.6em;
+    font-weight: bold;
+    margin: 8px 8px 8px 0;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.myTitle a:link,
+.myTitle a:visited {
+    text-decoration: none;
+    color: #fff;
+}
+
+.myTitle a:hover,
+.myTitle a:active {
+    text-decoration: none;
+    color: #ff0;
+}
+
+.myStatus {
+    font-size: 1.2em;
+    margin: 6px;
+    text-align: left;
+    white-space: nowrap;
+    /* animation: mymove 10s infinite; */
+}
+
+.srcCode {
+    position: absolute;
+    top: 2px;
+    right: -26px;
+    transform: rotate(45deg);
+    overflow: hidden;
+    z-index: 100;
+}
+
+.srcLink {
+    display: inline-block;
+    padding: 0 6px 2px 6px;
+    vertical-align: middle;
+    text-decoration: none;
+    color: #fff;
+    background-color: #0080FF;
+    text-align: center;
+    width: 70px;
+    margin-top: 4px;
+    border: 1px dashed #fff;
+    font-size: 1em;
+}
+
+.srcLink:hover {
+    text-decoration: none;
+    color: #fff;
+    background-color: #0080ff;
+    -webkit-box-shadow: 2px 2px 20px #000;
+    box-shadow: 2px 2px 20px #000;
+}
+
+
+/* 注: 这部分放到了html head标签内,
+是因为在js中要用document.styleSheets[2].deleteRule(1)
+和document.styleSheets[2].insertRule("", 1)
+来动态控制keyframes的transform: translateX()
+实现响应式滚动字幕, 放在css是无法实现的
+
+@keyframes mymove {
+    0% {
+        transform: translateX(0);
+        color: #fff;
+    }
+    50% {
+        transform: translateX(-240px);
+        color: #E64C65;
+    }
+    100% {
+        transform: translateX(0);
+        color: #fff;
+    }
+} */
+
+.search {
+    overflow-x: hidden;
+    width: 100%;
+    white-space: nowrap;
+    background-color: #3468af;
+}
+
+.srchBtn,
+.srchIpt {
+    font-size: 16px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    vertical-align: middle;
+    color: #fff;
+    border: 1px solid #fff;
+    background-color: #11a8ab;
+}
+
+.srchBtn {
+    width: 40px;
+    height: 28px;
+    padding: 2px 3px;
+}
+
+.srchIpt {
+    width: calc(100% - 39px);
+    height: 28px;
+    margin-left: -6px;
+    padding: 4px;
+    text-transform: uppercase;
+}
+
+ul#navBar {
+    font-size: 1.1em;
+    margin: auto;
+    padding: 0;
+    text-align: center;
+    background-color: #e64c65;
+}
+
+#navBar li {
+    display: inline-block;
+    width: 25%;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+
+#navBar li:hover {
+    background-color: #cc324b;
+}
+
+.active {
+    background-color: #cc324b;
+    /* 底部加描边小技巧 */
+    -webkit-box-shadow: inset 0 -5px 0 0 #4fc4f6;
+    box-shadow: inset 0 -5px 0 0 #4fc4f6;
+}
+
+#twList {
+    overflow-y: scroll;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #3468af;
+    background-color: #3468af;
+    overdlow-x: auto;
+}
+
+#twList .userImg {
+    display: inline-block;
+    float: left;
+    width: 80px;
+    height: 80px;
+    margin: 4px 14px;
+    -webkit-transition: all .5s ease-in;
+    transition: all .5s ease-in;
+    border-radius: 50%;
+    border: 6px solid #F39A3F;
+}
+
+#twList .userImg:hover {
+    -webkit-transform: rotate(720deg);
+    transform: rotate(720deg);
+}
+
+#twList ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.userDesc {
+    width: 100%;
+    height: 100px;
+    margin: 4px 0;
+    cursor: pointer;
+    background-color: #394264;
+}
+
+.userDesc:hover {
+    -webkit-box-shadow: 2px 2px 80px 10px #80ffff inset;
+    box-shadow: 2px 2px 80px 10px #80ffff inset;
+}
+
+.userDesc:first-child {
+    margin-top: 10px;
+}
+
+.userDesc:last-child {
+    margin-bottom: 10px;
+}
+
+#twList a:link,
+#twList a:visited,
+#twList a:hover,
+#twList a:active {
+    color: #fff;
+}
+
+#twList .userInfo {
+    display: inline-block;
+    float: left;
+}
+
+#twList .userName {
+    font-size: 1.2em;
+    font-weight: bold;
+    display: inline-block;
+    margin: 10px 0;
+    color: #4fc4f6;
+}
+
+
+/* 某些正在直播的游戏名称可能超长,
+在iPhone 5等小屏手机上会导致BUG(LOGO及直播信息错位或消失等),
+专门针对超长的游戏名称做滚动字幕处理 */
+
+#twOnline .gameName {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+    /* width: calc(100% - 174px); */
+    white-space: nowrap;
+}
+
+.strDetail {
+    margin-top: -4px;
+    height: 100px;
+    -webkit-transition: all .5s ease-in;
+    transition: all .5s ease-in;
+    background-color: #8000ff;
+}
+
+.strDesc {
+    float: left;
+    padding: 4px 0 4px 6px;
+}
+
+.strDesc span {
+    line-height: 30px;
+}
+
+.strImg {
+    float: right;
+    height: 92px;
+    padding: 4px;
+    -webkit-filter: drop-shadow(4px 4px 20px #80ffff);
+    filter: drop-shadow(4px 4px 20px #80ffff);
+}
+
+
+/* 用户离线状态时, 其LOGO加一层黑白滤镜 */
+
+.gray {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    -webkit-filter: gray;
+    filter: gray;
+}
+
+
+/* 浏览器默认的滚动条样式与页面不是很搭, 所以下面自定义了一下 */
+
+::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: rgba(0, 255, 255, .2);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: rgba(0, 255, 255, .2);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 0;
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(.44, rgb(28, 58, 148)), color-stop(.86, rgb(122, 153, 217)), color-stop(.72, rgb(73, 125, 189)));
+}
+
+
+/* AJAX成功从服务器返回数据前显示"正在加载"的动画, 更好的用户体验
+LOADING动画节选自http://www.raphaelfabeni.com.br/css-loader/, 致敬原作者raphaelfabeni */
+
+.loader {
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+.loader.is-active:after,
+.loader.is-active:before {
+    display: block;
+}
+
+.loader-bar:after {
+    position: fixed;
+    top: 62%;
+    left: 50%;
+    width: 200px;
+    height: 20px;
+    content: '';
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-animation: moveBar 1.5s linear infinite reverse;
+    animation: moveBar 1.5s linear infinite reverse;
+    background: linear-gradient(-45deg, #4183d7 25%, #52b3d9 25%, #52b3d9 50%, #4183d7 50%, #4183d7 75%, #52b3d9 75%, #52b3d9);
+    background-size: 20px 20px;
+    -webkit-box-shadow: inset 0 10px 0 rgba(255, 255, 255, .2), 0 0 0 5px rgba(0, 0, 0, .2);
+    box-shadow: inset 0 10px 0 rgba(255, 255, 255, .2), 0 0 0 5px rgba(0, 0, 0, .2);
+}
+
+.loader-text {
+    position: fixed;
+    top: 57%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+@-webkit-keyframes moveBar {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 20px 20px;
+    }
+}
+
+@keyframes moveBar {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 20px 20px;
+    }
+}
+
+@media screen and (min-width: 456px) and (max-width: 535px) {
+    .strDesc span {
+        font-size: 13px;
+    }
+    .strImg {
+        height: 80px;
+        padding: 10px 4px;
+    }
+}
+
+@media screen and (min-width: 413px) and (max-width: 455px) {
+    .strDesc {
+        padding-right: 0;
+    }
+    .strDesc span {
+        font-size: 12px;
+    }
+    .strImg {
+        height: 74px;
+        padding: 13px 2px;
+    }
+    .strLang {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 412px) {
+    .strDesc {
+        width: 100%;
+        padding: 4px 0;
+        text-align: center;
+    }
+    .strDesc span {
+        font-size: 14px;
+    }
+    .strImg {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 341px) and (max-width: 400px) {
+    .myTitle {
+        font-size: 1.2em;
+    }
+    .myStatus {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .myTitle {
+        font-size: 1.1em;
+    }
+    .myStatus {
+        font-size: .9em;
+    }
+}
