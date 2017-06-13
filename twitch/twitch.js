@@ -255,9 +255,9 @@ $(document).ready(function() {
 
         $(document).on("touchend", function(e) {
             if (currentX) {
-                if (currentX - lastX > 0) {
+                if (currentX - lastX > 50) {
                     moveTo = "right";
-                } else if (currentX - lastX < 0) {
+                } else if ( lastX - currentX > 50) {
                     moveTo = "left";
                 }
             }
