@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!--注意: 下面meta viewport这句很重要, 没有这句话的话这个页面无法实现真正的响应式, 在手机端看起来字体会很小, 参考https://www.w3schools.com/css/css_rwd_viewport.asp, W3C建议在所有网页中都带上这句-->
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+    <title>TWITCH-推奇直播</title>
+    <link rel="stylesheet" type="text/css" href="twitch/twitch.css">
+    <link href="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
+    <style type="text/css">
+    /* 注: 之所以将这部分有那个是单独放在html head标签内而非一起放到css文件中, 是因为在js中要用document.styleSheets[2].deleteRule(1)和document.styleSheets[2].insertRule("", 1)来动态控制keyframes的transform: translateX()实现响应式滚动字幕, 放在css是无法实现的 */
+    
+    .myStatus {
+        animation: myStatusMove 30s ease-in-out infinite;
+    }
+    
+    @keyframes myStatusMove {
+        0% {
+            transform: translateX(0);
+            color: #00FFFF;
+        }
+        100% {
+            transform: translateX(-240px);
+            color: #FFFF00;
+        }
+    }
+    </style>
+    <!-- <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script> -->
+    <script src="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="twitch/twitch.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.0/jquery.xdomainrequest.min.js'></script>
+</head>
+
+<body>
+    <div id="container" class="container-fluid">
+        <div id="headArea" class="headArea">
+            <img src="twitch/img/myLogo.png">
+            <div class="titleArea">
+                <h1 class="myTitle">
+                    <a target="_blank" href="https://www.mike652638.com/twitch-code.html">TWITCH-推奇直播</a>
+                </h1>
+                <h2 class="myStatus">这个小页面主要是利用jQuery的$.getJSON()方法从api.twitch.tv获取关注主播的在线状态及直播信息&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这个小页面主要是利用jQuery的$.getJSON()方法从api.twitch.tv获取关注主播的在线状态及直播信息</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="srcCode">
+                <a class="srcLink" href="https://github.com/mike652638/twitch-broadcasters" target="_blank">源码
+                </a>
+            </div>
+        </div>
+        <div class="search">
+            <input type="button" name="srchBtn" class="srchBtn" value="搜索">
+            <input type="text" name="srchIpt" class="srchIpt" id="srchIpt">
+        </div>
+        <ul id="navBar">
+            <li id="navAll" class="active">全部主播</li>
+            <li id="navOnline">正在直播</li>
+            <li id="navOffline">当前离线</li>
+        </ul>
+        <!-- AJAX成功从服务器返回数据前显示"正在加载"的动画, 更好的用户体验
+        LOADING动画节选自http://www.raphaelfabeni.com.br/css-loader/, 致敬原作者raphaelfabeni -->
+        <div class="loader loader-bar is-active">
+            <span class="loader-text">加载中, 请稍候 ...</span>
+        </div>
+        <div id="twList" class="twList">
+            <ul id="twOnline" class="twOnline">
+                <!-- AJAX中加入 -->
+                <!-- <li class="strDetail">
+                    <div class="strDesc">
+                        <span class="strStart">本次直播开始于: 2017-06-02 03:03:39</span>
+                        <br><span class="strVdo">视频高度: 720PX; 平均帧速: 62FPS; 语言: PT</span>
+                        <br> <span class="strStar">主播粉丝数: 187092;&nbsp;&nbsp;总浏览次数: 6597525</span>
+                    </div>
+                    <img src="https://static-cdn.jtvnw.net/previews-ttv/live_user_rakin-320x180.jpg" alt="" class="strImg">
+                </li> -->
+            </ul>
+            <ul id="twOffline" class="twOffline"></ul>
+        </div>
+    </div>
+</body>
+
+</html>
