@@ -138,12 +138,12 @@ function respCont() {
 }
 
 $(document).ready(function() {
-    /*借助jQuery UI方法使得整个消息框可以在一定范围内随意拖动和改变大小,
-    参考http://www.runoob.com/jqueryui/example-draggable.html*/
-    //$("#container").draggable();
-    /*$("#container").resizable({
+    //借助jQuery UI方法使得整个消息框可以在一定范围内随意拖动和改变大小,
+    //参考http: //www.runoob.com/jqueryui/example-draggable.html
+    $("#container").draggable();
+    $("#container").resizable({
         handles: 'n, e, w, ne, nw'
-    });*/
+    });
 
     twListHeight();
     myStatusMove();
@@ -255,9 +255,9 @@ $(document).ready(function() {
 
         $(document).on("touchend", function(e) {
             if (currentX) {
-                if (currentX - lastX > 50) {
+                if (currentX - lastX > 0) {
                     moveTo = "right";
-                } else if ( lastX - currentX > 50) {
+                } else if (currentX - lastX < 0) {
                     moveTo = "left";
                 }
             }
